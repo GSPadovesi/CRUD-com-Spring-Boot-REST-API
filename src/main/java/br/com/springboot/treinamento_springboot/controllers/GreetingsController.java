@@ -27,4 +27,10 @@ public class GreetingsController {
     public String greetingText(@PathVariable String name) {
         return "Gabriel Santana " + name + "!";
     }
+    
+    @RequestMapping(value ="/olamundo/{nome}", method = RequestMethod.GET) /* Mapeamento de requisição */
+    @ResponseStatus(HttpStatus.OK)
+    public String getText(@PathVariable String nome) {
+    	return "Olá Mundo! " + nome; 
+    }
 }
