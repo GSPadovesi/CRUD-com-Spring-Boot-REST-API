@@ -22,6 +22,9 @@ Gabriel Santana Padovesi
 * Caso seu projeto deu erro com a injeção de dependencia - @org.springframework.beans.factory.annotation.Autowired(required=true) 
 * Verifique os padrões dos nomes dos package. Tente manter um padrão igual para todos os package
 * Caso o problema não seje resolvido da uma olhada nas reases do spring boot.
+* ------------------------------------------------------------------
+* Caso seu servidor apache deu erro de porta, só ir no arquivo application.properties
+* E mudar a linha server.port=8000 para server.port=0
 
 ## lICENÇA
 * - Este projeto foi criado apenas PARA FINS EDUCATIVOS SOB A LICENÇA MIT - Consulte o arquivo LICENSE.md para detalhes.
