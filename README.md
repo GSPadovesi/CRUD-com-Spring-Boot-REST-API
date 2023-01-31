@@ -18,7 +18,7 @@ Gabriel Santana Padovesi
 * private String nome;
 * private int idade;
 
-#Observação 
+# Observação 
 * Caso seu projeto deu erro com a injeção de dependencia - @org.springframework.beans.factory.annotation.Autowired(required=true) 
 * Verifique os padrões dos nomes dos package. Tente manter um padrão igual para todos os package
 * Caso o problema não seje resolvido da uma olhada nas reases do spring boot.
