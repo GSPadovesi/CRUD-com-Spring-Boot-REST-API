@@ -68,7 +68,17 @@ public class GreetingsController{
     @ResponseBody /* Retorna os dados para o corpo da resposta - Retorna um JSON*/
     public ResponseEntity<List<Usuario>> listarUsuarios() {
     	List<Usuario> usuarios = usuarioRepository.findAll(); /* Executa a consulta no banco de dados */
-    	
     	return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
    }
+
+    @PostMapping(value = "adicionar") /* Mapeia a URL */
+    @ResponseBody
+    public ResponseEntity<Usuario> adicionarUsuario(@RequestBody Usuario usuario){ /* @RequestBody - Recebe os dados para salvar */
+    	
+    	Usuario user = usuarioRepository.save(usuario);
+    	
+    	return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
+    }
 }
+
+
