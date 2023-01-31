@@ -1,4 +1,4 @@
-package br.com.springboot.treinamento_springboot;
+package br.com.springboot;
 
 import javax.persistence.Entity;
 
