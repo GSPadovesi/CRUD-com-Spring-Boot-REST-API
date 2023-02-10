@@ -79,6 +79,15 @@ public class GreetingsController{
     	
     	return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
     }
+    
+    @DeleteMapping(value = "deletar") /* Mapeia a URL */
+    @ResponseBody
+    public ResponseEntity<String>delete(@RequestParam Long iduser){ /* RequestParam - Receber um parametro */
+    	
+    	usuarioRepository.deleteById(iduser);
+    	
+    	return new ResponseEntity<String>("User deletado com sucesso", HttpStatus.OK);
+    }
 }
 
 
