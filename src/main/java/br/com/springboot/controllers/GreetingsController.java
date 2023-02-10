@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +49,8 @@ public class GreetingsController{
         return "SpringBoot " + name + "!";
     }
     
+    //--------------------------------------------------------
+    
     @RequestMapping(value ="/olamundo/{nome}", method = RequestMethod.GET) /* Mapeamento de requisição */
     @ResponseStatus(HttpStatus.OK)
     public String getText(@PathVariable String nome) {
@@ -62,6 +65,7 @@ public class GreetingsController{
     	return "Olá Mundo! " + nome; 
     }
     
+    //--------------------------------------------------------
     
     /* Primeiro método de API - Método de listar Usuario */
     @GetMapping(value = "listausuarios") /* Mesa função do RequestMapping - Mas não precisa retornar o método GET */
@@ -70,6 +74,8 @@ public class GreetingsController{
     	List<Usuario> usuarios = usuarioRepository.findAll(); /* Executa a consulta no banco de dados */
     	return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
    }
+    
+    //--------------------------------------------------------
 
     @PostMapping(value = "adicionar") /* Mapeia a URL */
     @ResponseBody
@@ -80,6 +86,27 @@ public class GreetingsController{
     	return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
     }
     
+    //--------------------------------------------------------
+    
+    @PutMapping(value = "atualizar")
+    @ResponseBody
+    public ResponseEntity<?>atualizar(@RequestBody Usuario usuario){
+    	
+    	if(usuario.getId() == null) {
+    		return new ResponseEntity<String>("ID não foi informado para atualização", HttpStatus.OK);
+    	}
+    	
+    	Usuario user = usuarioRepository.saveAndFlush(usuario);
+    	return new ResponseEntity<Usuario>(user, HttpStatus.OK);
+    }
+    
+//    @PutMapping("atualizar")
+//    public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
+//        return new ResponseEntity<>(usuarioRepository.saveAndFlush(usuario), HttpStatus.OK);    	
+//    }
+    
+    //--------------------------------------------------------
+    
     @DeleteMapping(value = "deletar") /* Mapeia a URL */
     @ResponseBody
     public ResponseEntity<String>delete(@RequestParam Long iduser){ /* RequestParam - Receber um parametro */
@@ -87,6 +114,15 @@ public class GreetingsController{
     	usuarioRepository.deleteById(iduser);
     	
     	return new ResponseEntity<String>("User deletado com sucesso", HttpStatus.OK);
+    }
+    
+    //--------------------------------------------------------
+    
+    @GetMapping(value = "buscaruserid")
+    @ResponseBody
+    public ResponseEntity<Usuario>buscarUserId(@RequestParam(name="iduser") Long iduser){
+    	Usuario usuario = usuarioRepository.findById(iduser).get();
+    	return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 }
 
