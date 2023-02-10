@@ -17,9 +17,7 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario")
 	private Long id;
-
 	private String nome;
-
 	private int idade;
 
 	public Long getId() {
