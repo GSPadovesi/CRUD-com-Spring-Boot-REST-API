@@ -1,6 +1,8 @@
+![GitHub](https://img.shields.io/github/license/GabrielSantanaP/Filmes-e-Series?style=for-the-badge)
+
 # CRUD-com-Spring-Boot-REST-API
 Projeto de CRUD desenvolvido com java spring boot com rest API
-![GitHub](https://img.shields.io/github/license/GabrielSantanaP/Filmes-e-Series?style=for-the-badge)
+
 # Aplicação Web em Java 
 CRUD com java Spring boot e rest API - Projeto aonde conseguimos fazer os CRUD - Create, Read, Update e Delete através das anotações spring boot com restAPI.
 
